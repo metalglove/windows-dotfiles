@@ -23,7 +23,7 @@ function Dotfile-WinGet-Apps()
 {
   winget install Git.Git
   Append-EnvPathIfExists "C:\Program Files\Git\bin\"
-  winget install vim.vim --version 9.0.9
+  winget install -e --id vim.vim -v 9.0.0009
   Append-EnvPathIfExists "C:\Program Files\Vim\vim90\vim.exe"
 }
 
