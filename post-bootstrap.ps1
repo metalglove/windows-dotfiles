@@ -22,7 +22,9 @@ function Register-Ethernet-Adapter-Fix()
 function Dotfile-WinGet-Apps()
 {
   winget install Git.Git
-  winget install vim.vim
+  Append-EnvPathIfExists "C:\Program Files\Git\bin\"
+  winget install vim.vim --version 9.0.9
+  Append-EnvPathIfExists "C:\Program Files\Vim\vim90\vim.exe"
 }
 
 function Dotfiles-Post-Bootstrap-Install() 
@@ -35,7 +37,8 @@ function Dotfiles-Post-Bootstrap-Install()
   Register-Ethernet-Adapter-Fix
 
   # map drives
-  Map-NetworkDrives
+  # NOTE: temporarily commented
+  # Map-NetworkDrives
   
   # install applications
   Dotfile-WinGet-Apps
