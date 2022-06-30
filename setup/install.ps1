@@ -44,6 +44,7 @@ if ([System.IO.Directory]::Exists($dotfilesInstallDir))
 Unzip-File $sourceFile $dotfilesTempDir
 
 Push-Location $dotfilesInstallDir
+Set-ExecutionPolicy -Scope CurrentUser Unrestricted -Force
 & .\bootstrap.ps1
 Pop-Location
 
