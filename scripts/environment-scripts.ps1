@@ -25,32 +25,79 @@ function Set-Environment([string]$variable, [string]$value)
   Invoke-Expression "`$env:${variable} = `"$value`""
 }
 
-# Add a folder to $env:Path
-function Prepend-EnvPath([string]$path) 
-{ 
-  # $env:PATH = $env:PATH + ";$path" 
-  [Environment]::SetEnvironmentVariable("PATH", "$path;" + $Env:PATH, [EnvironmentVariableTarget]::Machine)
-}
+function Append-EnvPath(
+  [Parameter(Mandatory=$true)][string]$Path, 
+  [ValidateSet('Machine', 'User', 'Session')][string]$Container = 'Session') 
+{
+  if ($Container -ne 'Session') 
+  {
+    $containerMapping = @{
+      Machine = [EnvironmentVariableTarget]::Machine
+      User = [EnvironmentVariableTarget]::User
+    }
+    $containerType = $containerMapping[$Container]
 
-function Prepend-EnvPathIfExists([string]$path) 
-{ 
-  if (Test-Path $path) 
-  { 
-    Prepend-EnvPath $path 
+    $persistedPaths = [Environment]::GetEnvironmentVariable('Path', $containerType) -split ';'
+    if ($persistedPaths -notcontains $Path) 
+    {
+      $persistedPaths = $persistedPaths + $Path | Where-Object { $_ }
+      [Environment]::SetEnvironmentVariable('Path', $persistedPaths -join ';', $containerType)
+    }
+  }
+
+  $envPaths = $env:Path -split ';'
+  if ($envPaths -notcontains $Path) 
+  {
+    $envPaths = $envPaths + $Path | Where-Object { $_ }
+    $env:Path = $envPaths -join ';'
   }
 }
 
-function Append-EnvPath([string]$path) 
-{ 
-  # $env:PATH = $env:PATH + ";$path"
-  [Environment]::SetEnvironmentVariable("PATH", $Env:PATH + ";$path", [EnvironmentVariableTarget]::Machine)
+function Remove-EnvPath(
+  [Parameter(Mandatory=$true)][string]$Path, 
+  [ValidateSet('Machine', 'User', 'Session')][string]$Container = 'Session') 
+{
+  if ($Container -ne 'Session') 
+  {
+    $containerMapping = @{
+      Machine = [EnvironmentVariableTarget]::Machine
+      User = [EnvironmentVariableTarget]::User
+    }
+    $containerType = $containerMapping[$Container]
+
+    $persistedPaths = [Environment]::GetEnvironmentVariable('Path', $containerType) -split ';'
+    if ($persistedPaths -contains $Path) 
+    {
+      $persistedPaths = $persistedPaths | Where-Object { $_ -and $_ -ne $Path }
+      [Environment]::SetEnvironmentVariable('Path', $persistedPaths -join ';', $containerType)
+    }
+  }
+
+  $envPaths = $env:Path -split ';'
+  if ($envPaths -contains $Path) 
+  {
+    $envPaths = $envPaths | Where-Object { $_ -and $_ -ne $Path }
+    $env:Path = $envPaths -join ';'
+  }
 }
 
-function Append-EnvPathIfExists([string]$path)
+function Get-EnvPath([Parameter(Mandatory=$true)][ValidateSet('Machine', 'User')][string]$Container) 
+{
+  $containerMapping = @{
+    Machine = [EnvironmentVariableTarget]::Machine
+    User = [EnvironmentVariableTarget]::User
+  }
+  $containerType = $containerMapping[$Container]
+  [Environment]::GetEnvironmentVariable('Path', $containerType) -split ';' | Where-Object { $_ }
+}
+
+function Append-EnvPathIfExists(
+  [Parameter(Mandatory=$true)][string]$Path, 
+  [ValidateSet('Machine', 'User', 'Session')][string]$Container = 'Session')
 { 
-  if (Test-Path $path) 
+  if (Test-Path $Path) 
   { 
-    Append-EnvPath $path
+    Append-EnvPath $Path $Container
   }
 }
 

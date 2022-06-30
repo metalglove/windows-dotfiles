@@ -22,11 +22,11 @@ function Register-Ethernet-Adapter-Fix()
 function Dotfile-WinGet-Apps()
 {
   winget install Git.Git
-  Append-EnvPathIfExists "C:\Program Files\Git\bin\"
+  Append-EnvPathIfExists "C:\Program Files\Git\bin\" 'User'
 
   winget install -e --id vim.vim -v 9.0.0009
-  Robocopy "C:\Program Files\Vim\vim90" "C:\bin\vim" *vim.exe /s
-  Append-EnvPathIfExists "C:\bin\vim\"
+  Robocopy "C:\Program Files\Vim\vim90" "C:\bin\vim" *vim.exe /s /NFL /NDL /NJH /NJS /nc /ns /np
+  Append-EnvPathIfExists "C:\bin\vim\" 'User'
 }
 
 function Dotfiles-Post-Bootstrap-Install() 
