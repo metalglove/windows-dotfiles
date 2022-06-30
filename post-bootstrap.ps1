@@ -22,6 +22,7 @@ function Register-Ethernet-Adapter-Fix()
 function Dotfile-WinGet-Apps()
 {
   winget install Git.Git
+  winget install vim.vim
 }
 
 function Dotfiles-Post-Bootstrap-Install() 
@@ -37,19 +38,20 @@ function Dotfiles-Post-Bootstrap-Install()
   Map-NetworkDrives
   
   # install applications
+  Dotfile-WinGet-Apps
 }
 
-# Ensure that the powershell is running as Administrator
-$currentPrincipal = New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())
-$elevated = $currentPrincipal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
-if (!$elevated) 
-{
-  $newProcess = New-Object System.Diagnostics.ProcessStartInfo "PowerShell";
-  $newProcess.Arguments = $myInvocation.MyCommand.Definition;
-  $newProcess.Verb = "runas";
-  $process = [System.Diagnostics.Process]::Start($newProcess);
-  $process.WaitForExit()
-  # exit  
-}
+# # Ensure that the powershell is running as Administrator
+# $currentPrincipal = New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())
+# $elevated = $currentPrincipal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+# if (!$elevated) 
+# {
+#   $newProcess = New-Object System.Diagnostics.ProcessStartInfo "PowerShell";
+#   $newProcess.Arguments = $myInvocation.MyCommand.Definition;
+#   $newProcess.Verb = "runas";
+#   $process = [System.Diagnostics.Process]::Start($newProcess);
+#   $process.WaitForExit()
+#   # exit  
+# }
 
 Dotfiles-Post-Bootstrap-Install
