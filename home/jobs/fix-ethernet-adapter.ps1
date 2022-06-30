@@ -1,1 +1,1 @@
-Restart-NetAdapter
+Restart-NetworkAdapter

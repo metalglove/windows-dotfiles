@@ -4,10 +4,13 @@ The dotfiles for my windows environment.
 ## Applications (TODO)
 Applications to figure out how to install (&#9744;, &#9745;)
 
-&#9744; Windows Terminal <br>
-&#9744; CORSAIR iCUE 4 software <br>
+&#9745; Windows Terminal [Installed by default](https://docs.microsoft.com/en-us/windows/whats-new/windows-11-overview#:~:text=Windows%20Terminal%20app%3A%20This%20app%20is%20included%20with%20the%20OS) <br>
+&#9745; Windows Package Manager (winget) [Installed by default](https://docs.microsoft.com/en-us/windows/package-manager/winget/) <br>
 &#9744; Git <br>
 &#9744; Gource <br>
+&#9744; VSCode <br>
+&#9744; CORSAIR iCUE 4 software <br>
+&#9744; OpenSSL <br>
 &#9744; HWINFO64 <br>
 &#9744; JAVA 11 & 17 <br>
 &#9744; PixInsight <br>
@@ -15,11 +18,11 @@ Applications to figure out how to install (&#9744;, &#9745;)
 &#9744; RegiStax 6 <br>
 &#9744; DeepSkyStacker <br>
 &#9744; SharpCap <br>
+&#9744; AutoStakkert <br>
 &#9744; Stellarium <br>
 &#9744; FileZilla <br>
 &#9744; balenaEtcher <br>
 &#9744; CMake <br>
-&#9744; VSCode <br>
 &#9744; VisualStudio2022 <br>
 &#9744; MusicBee & LastFm scrobbling <br>
 &#9744; Audient (creative app) <br>
@@ -72,6 +75,8 @@ Applications to figure out how to install (&#9744;, &#9745;)
 &#9744; VLC media player <br>
 &#9744; Wallpaper Engine <br>
 &#9744; WinZip <br>
+&#9744; ffmpeg <br>
+&#9744; MoveToDesktop <br>
 
 ## Startup scripts
 - ethernet adapter fix for main pc

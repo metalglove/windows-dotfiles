@@ -19,6 +19,11 @@ function Register-Ethernet-Adapter-Fix()
   Write-Warning "The RestartEthernetAdapterFix job is succesfully added to the scheduler."
 }
 
+function Dotfile-WinGet-Apps()
+{
+  winget install Git.Git
+}
+
 function Dotfiles-Post-Bootstrap-Install() 
 {
   # Ensure-Elevation
@@ -43,6 +48,7 @@ if (!$elevated)
   $newProcess.Arguments = $myInvocation.MyCommand.Definition;
   $newProcess.Verb = "runas";
   $process = [System.Diagnostics.Process]::Start($newProcess);
+  $process.WaitForExit()
   # exit  
 }
 
