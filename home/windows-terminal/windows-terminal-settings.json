@@ -1,0 +1,151 @@
+{
+    "$help": "https://aka.ms/terminal-documentation",
+    "$schema": "https://aka.ms/terminal-profiles-schema",
+    "actions": 
+    [
+        {
+            "command": "paste",
+            "keys": "ctrl+v"
+        },
+        {
+            "command": 
+            {
+                "action": "copy",
+                "singleLine": false
+            },
+            "keys": "ctrl+c"
+        },
+        {
+            "command": "find",
+            "keys": "ctrl+shift+f"
+        },
+        {
+            "command": 
+            {
+                "action": "splitPane",
+                "split": "auto",
+                "splitMode": "duplicate"
+            },
+            "keys": "alt+shift+d"
+        }
+    ],
+    "copyFormatting": "none",
+    "copyOnSelect": false,
+    "defaultProfile": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+    "firstWindowPreference": "persistedWindowLayout",
+    "profiles": 
+    {
+        "defaults": 
+        {
+            "colorScheme": "Dracula"
+        },
+        "list": 
+        [
+            {
+                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+                "name": "Windows PowerShell",
+                "commandline": "powershell.exe -nologo"
+            },
+            {
+                "commandline": "%PROGRAMFILES%/git/usr/bin/bash.exe -i -l",
+                "guid": "{00000000-0000-0000-ba54-000000000002}",
+                "icon": "%PROGRAMFILES%/Git/mingw64/share/git/git-for-windows.ico",
+                "name": "Bash",
+                "startingDirectory": "%USERPROFILE%"
+            },
+            {
+                "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+                "name": "Command Prompt"
+            },
+            {
+                "commandline": "ssh glovali@192.168.1.122",
+                "guid": "{7107c205-ffec-5d52-89bb-841ae7236cf6}",
+                "icon": "%USERPROFILE%/windows-terminal/icons/grafana_logo.png",
+                "name": "SSH Grafana VM",
+                "tabTitle": "Grafana"
+            },
+            {
+                "commandline": "ssh root@192.168.1.74",
+                "guid": "{ee39ea66-e2f2-5dd7-9c35-e747399aa463}",
+                "icon": "%USERPROFILE%/windows-terminal/icons/proxmox_logo.png",
+                "name": "SSH Proxmox server",
+                "tabTitle": "Proxmox"
+            },
+            {
+                "commandline": "ssh root@192.168.1.99",
+                "guid": "{a598827c-59fe-5583-9c40-d6713ed6f5d0}",
+                "icon": "%USERPROFILE%/windows-terminal/icons/docker_logo.png",
+                "name": "DockerLXC",
+                "tabTitle": "Docker"
+            },
+            {
+                "commandline": "ssh glovali@nasali",
+                "guid": "{1168ed89-746b-411f-8769-731f9028f837}",
+                "icon": "%USERPROFILE%/windows-terminal/icons/nas_logo.png",
+                "name": "NAS",
+                "tabTitle": "NAS"
+            },
+            {
+                "commandline": "ssh glovali@kmaster",
+                "guid": "{e2c51226-276e-51ac-9267-a429cc8ae61e}",
+                "icon": "%USERPROFILE%/windows-terminal/icons/kubernetes_logo.png",
+                "name": "Kubernetes master",
+                "tabTitle": "Kmaster"
+            },
+            {
+                "commandline": "ssh assist@home",
+                "guid": "{82483ef9-3a17-5398-8fa7-f5e0bf9f0030}",
+                "icon": "%USERPROFILE%/windows-terminal/icons/nvidia_logo.png",
+                "name": "Jetson Nano",
+                "tabTitle": "Jetson"
+            },
+            {
+                "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
+                "name": "Ubuntu",
+                "source": "Windows.Terminal.Wsl"
+            },
+            {
+                "guid": "{32afc6a1-82d3-58cc-9731-da33d0a2379a}",
+                "name": "Developer Command Prompt for VS 2022",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{c09b089f-7113-5d4e-91b4-b934bbfc5062}",
+                "name": "Developer PowerShell for VS 2022",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{16208362-94fc-5b1f-a491-5b2624d5ab56}",
+                "hidden": true,
+                "name": "Visual Studio Debug Console",
+                "source": "VSDebugConsole"
+            }
+        ]
+    },
+    "schemes": 
+    [
+        {
+            "background": "#282A36",
+            "black": "#21222C",
+            "blue": "#BD93F9",
+            "brightBlack": "#6272A4",
+            "brightBlue": "#D6ACFF",
+            "brightCyan": "#A4FFFF",
+            "brightGreen": "#69FF94",
+            "brightPurple": "#FF92DF",
+            "brightRed": "#FF6E6E",
+            "brightWhite": "#FFFFFF",
+            "brightYellow": "#FFFFA5",
+            "cursorColor": "#F8F8F2",
+            "cyan": "#8BE9FD",
+            "foreground": "#F8F8F2",
+            "green": "#50FA7B",
+            "name": "Dracula",
+            "purple": "#FF79C6",
+            "red": "#FF5555",
+            "selectionBackground": "#44475A",
+            "white": "#F8F8F2",
+            "yellow": "#F1FA8C"
+        }
+    ]
+}
