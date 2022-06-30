@@ -37,3 +37,18 @@ function CreateAndSet-Directory([string]$Path)
 { 
   New-Item $Path -ItemType Directory -ErrorAction SilentlyContinue; Set-Location $Path
 }
+
+function Is-Elevated() 
+{
+  $currentPrincipal = New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())
+  Return $currentPrincipal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+}
+
+function Ensure-Elevation() 
+{
+  if (!Is-Elevated)
+  {
+    Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`" $PSCommandArgs" -Verb RunAs
+    Exit
+  }
+}
