@@ -25,8 +25,10 @@ function Dotfile-WinGet-Apps()
   Append-EnvPathIfExists "C:\Program Files\Git\bin\" 'User'
 
   winget install -e --id vim.vim -v 9.0.0009
-  Robocopy "C:\Program Files\Vim\vim90" "C:\bin\vim" *vim.exe /s /NFL /NDL /NJH /NJS /nc /ns /np
-  Append-EnvPathIfExists "C:\bin\vim\" 'User'
+  # Robocopy "C:\Program Files\Vim\vim90" "C:\bin\vim" *vim.exe /s /NFL /NDL /NJH /NJS /nc /ns /np
+  # New-Item -Path "C:\bin\vim\" -ItemType Directory -Force
+  # cmd /c mklink "C:\bin\vim\vim.exe" "C:\Program Files\Vim\vim90\vim.exe"
+  Append-EnvPathIfExists "C:\Program Files\Vim\vim90\" 'User'
 }
 
 function Dotfiles-Post-Bootstrap-Install() 
