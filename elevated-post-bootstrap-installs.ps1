@@ -89,3 +89,5 @@ if (!$currentPrincipal.IsInRole([Security.Principal.WindowsBuiltInRole]::Adminis
   Write-Output "The shell is not elevated; exiting.."
   Exit  
 }
+
+Dotfile-WinGet-Apps
