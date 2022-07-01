@@ -23,6 +23,9 @@ function Install-Applications()
 {
   $profileDir = Split-Path -parent $profile
   Start-Process -FilePath 'powershell.exe' -ArgumentList "-ExecutionPolicy Bypass -File ${profileDir}\elevated-post-bootstrap-installs.ps1" -Verb 'RunAs' -Wait
+  # NOTE: spotify has to be installed in a non elevated session.
+  winget install -e --id Spotify.Spotify # auto start... and requires installation on user privelages not admin! exit code 23
+
 }
 
 function Dotfiles-Post-Bootstrap-Install() 

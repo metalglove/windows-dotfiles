@@ -32,7 +32,6 @@ function Dotfile-WinGet-Apps()
   winget install -e --id Peppy.Osu!
   # for osu download songs from NAS?
   winget install -e --id WhatsApp.WhatsApp
-  winget install -e --id Spotify.Spotify # auto start...
   winget install -e --id ElectronicArts.EADesktop # y
   # EA app or origin?
   winget install -e --id Google.Chrome # y
@@ -54,7 +53,7 @@ function Dotfile-WinGet-Apps()
   winget install -e --id NordVPN.NordVPN # y autostart
   winget install -e --id Microsoft.Office # y
   winget install -e --id Microsoft.Teams
-  winget install -e --id Plex.Plex # y auto start
+  winget install -e --id Plex.Plex # y auto start and requires access for private network
   winget install -e --id ActivityWatch.ActivityWatch
   # still needs to extension for chrome https://chrome.google.com/webstore/detail/activitywatch-web-watcher/nglaklhklhcoonedhgnpgddginnjdadi/related
   # or just login to chrome with user and sync extensions?
